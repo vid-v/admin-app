@@ -6,6 +6,9 @@ import { Block } from 'baseui/block';
 import { Button } from 'baseui/button';
 import Container from '../components/UiElements/Container/Container';
 
+import Auth from '../utils/auth0';
+
+
 const Login: NextPage<{}> = () => {
   const router = useRouter();
 
@@ -46,6 +49,38 @@ const Login: NextPage<{}> = () => {
           >
             Log in to INST.
           </Block>
+
+          <Button
+            onClick={() => router.push('/api/login')}
+            startEnhancer={() => <IoLogoFacebook size="1.25rem" />}
+            overrides={{
+              BaseButton: {
+                style: ({ $theme }) => {
+                  return {
+                    ...$theme.typography.font250,
+                    width: '100%',
+                    maxWidth: '260px',
+                    borderTopLeftRadius: '4px',
+                    borderTopRightRadius: '4px',
+                    borderBottomLeftRadius: '4px',
+                    borderBottomRightRadius: '4px',
+                    marginTop: '10px',
+                    justifyContent: 'flex-start',
+                    paddingLeft: '25px',
+                    paddingRight: '25px',
+                    backgroundColor: '#4267B2',
+                    transition: 'all 0.3s ease',
+                    ':hover': {
+                      backgroundColor: '#4267B2',
+                      opacity: 0.95,
+                    },
+                  };
+                },
+              },
+            }}
+          >
+            Continue with Auth0
+          </Button>
 
           <Button
             onClick={() => router.push('/')}
