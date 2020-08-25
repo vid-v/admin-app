@@ -2,15 +2,15 @@ import { initAuth0 } from '@auth0/nextjs-auth0';
 // import config from './config';
 
 export default initAuth0({
-  domain: '<AUTH0_DOMAIN>',
-  clientId: '<AUTH0_CLIENT_ID>',
+  domain: 'go-everpay.auth0.com',
+  clientId: 'OLKwEH0FnuOs7yT7lcNSHXCrY5H8K6Oh',
   clientSecret: '<AUTH0_CLIENT_SECRET>',
   scope: 'openid profile',
-  redirectUri: 'http://localhost:3000/api/callback',
+  redirectUri: 'http://localhost:3000//callback',
   postLogoutRedirectUri: 'http://localhost:3000/',
   session: {
     // The secret used to encrypt the cookie.
-    cookieSecret: '<RANDOMLY_GENERATED_SECRET>',
+    cookieSecret: 'OLKwEH0FnuOs7yT7lcNSHXCrY5H8K6Oh',
     // The cookie lifetime (expiration) in seconds. Set to 8 hours by default.
     cookieLifetime: 60 * 60 * 8,
     // (Optional) The cookie domain this should run on. Leave it blank to restrict it to your domain.
