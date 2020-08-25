@@ -5,6 +5,12 @@ import { IoLogoFacebook, IoLogoTwitter } from 'react-icons/io';
 import Container from '../components/UiElements/Container/Container';
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import {
+  Card,
+  StyledBody,
+  StyledAction
+} from "baseui/card";
+import {H1, H2, H3, H4, H5, H6} from 'baseui/typography';
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 import { Select } from 'baseui/select';
@@ -79,14 +85,19 @@ const Login: NextPage<{}> = () => {
       </Head>
 
       <Container>
-      <form onSubmit={handleSubmit(onSubmit)} style={{ width: '70%' }}>
-      <Block paddingTop={['0', '0', '0', '150px']}>
+      <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+      <Block paddingTop={['0', '0', '0', '50px']}>
       <Row>
-            <Col lg={6}>
+            <Col lg={3}>
               
             </Col>
-            <Col lg={6}>
+            <Col lg={9}>
+            <Card  style={{ width: '60%', height: '400px' }}>
             <Row>
+              <H5>Log In</H5>
+            </Row>
+            <Row>
+
                   <Block>
                    <FormControl
                       label=""
@@ -141,9 +152,10 @@ const Login: NextPage<{}> = () => {
                       />
                     </FormControl>
               </Block>
+
             </Row>
-            
               <Button type="submit">Login In</Button>
+              </Card>
             </Col>
           </Row>
        
