@@ -15,8 +15,8 @@ const Login: NextPage<{}> = () => {
   return (
     <>
       <Head>
-        <title>Login | INST.</title>
-        <meta name="Description" content="Inst login page" />
+        <title>Login | KwikPay</title>
+        <meta name="Description" content="KwikPay login page" />
       </Head>
 
       <Container>
