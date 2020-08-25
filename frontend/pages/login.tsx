@@ -2,16 +2,75 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { IoLogoFacebook, IoLogoTwitter } from 'react-icons/io';
-import { Block } from 'baseui/block';
-import { Button } from 'baseui/button';
 import Container from '../components/UiElements/Container/Container';
-
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { FormControl } from 'baseui/form-control';
+import { Input } from 'baseui/input';
+import { Select } from 'baseui/select';
+import { Textarea } from 'baseui/textarea';
+import { Checkbox } from 'baseui/checkbox';
+import { RadioGroup, Radio } from 'baseui/radio';
+import { Datepicker } from 'baseui/datepicker';
+import { Button } from 'baseui/button';
+import { Block } from 'baseui/block';
 import Auth from '../utils/auth0';
-
-
+import { Row, Col } from 'react-flexbox-grid';
+type FormData = {
+  newPassword: string;
+};
 const Login: NextPage<{}> = () => {
   const router = useRouter();
+  const { register, handleSubmit, setValue, errors } = useForm();
+  const [select, setSelect] = useState([]);
+  const [datepicker, setDatepicker] = useState([]);
+  const [aboutYourself, setAboutYourself] = useState('');
+  const [checked, setChecked] = useState(false);
+  const [radio, setRadio] = useState('1');
+  const [state, setState] = useState<FormData>({
+    newPassword: ''
+  });
 
+  useEffect(() => {
+    register({ name: 'dateOfBirth' });
+    register({ name: 'favoriteColor' });
+    register({ name: 'aboutYourself' });
+    register({ name: 'gender' });
+  }, [register]);
+
+  const onSubmit = data => {
+    console.log(data);
+    alert(JSON.stringify(data, null, 4));
+  };
+
+  const handleSelect = ({ value }) => {
+    setValue('favoriteColor', value);
+    setSelect(value);
+  };
+
+  const handleDatepicker = ({ date }) => {
+    setValue('dateOfBirth', date);
+    setDatepicker(date);
+  };
+
+  const handleTextarea = event => {
+    const value = event.target.value;
+    setAboutYourself(value);
+    setValue('aboutYourself', value);
+  };
+
+  const handleRadioGroup = event => {
+    setValue('gender', event.currentTarget.value);
+    setRadio(event.currentTarget.value);
+  };
+ 
+  const handleOnChange = (e: any) => {
+    const { name, value } = e.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
   return (
     <>
       <Head>
@@ -20,6 +79,78 @@ const Login: NextPage<{}> = () => {
       </Head>
 
       <Container>
+      <form onSubmit={handleSubmit(onSubmit)} style={{ width: '70%' }}>
+      <Block paddingTop={['0', '0', '0', '150px']}>
+      <Row>
+            <Col lg={6}>
+              
+            </Col>
+            <Col lg={6}>
+            <Row>
+                  <Block>
+                   <FormControl
+                      label=""
+                      caption=""
+                      error={errors.email && 'Please enter a valid email address'}
+                    >
+                      <Input
+                        name="email"
+                        placeholder="Email"
+                        inputRef={register({
+                          required: true,
+                          pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                        })}
+                        overrides={{
+                          InputContainer: {
+                            style: () => {
+                              return { backgroundColor: 'transparent' };
+                            },
+                          },
+                        }}
+                      />
+                    </FormControl>
+              </Block>
+            </Row>
+            <Row>
+                  <Block>
+                   <FormControl
+                      label=""
+                      caption="Please use 20 characters at maximum"
+                      overrides={{
+                        Label: {
+                          style: ({ $theme }) => {
+                            return { ...$theme.typography.font350 };
+                          },
+                        },
+                      }}
+                    >
+                      <Input
+                        type="password"
+                        name="newPassword"
+                        placeholder="Password"
+                        value={state.newPassword}
+                        onChange={handleOnChange}
+                        inputRef={register({ required: true, maxLength: 20 })}
+                        overrides={{
+                          InputContainer: {
+                            style: () => {
+                              return { backgroundColor: 'transparent' };
+                            },
+                          },
+                        }}
+                      />
+                    </FormControl>
+              </Block>
+            </Row>
+            
+              <Button type="submit">Login In</Button>
+            </Col>
+          </Row>
+       
+      </Block>
+
+      
+    </form>
         <Block
           overrides={{
             Block: {
@@ -33,22 +164,7 @@ const Login: NextPage<{}> = () => {
             },
           }}
         >
-          <Block
-            as="h1"
-            overrides={{
-              Block: {
-                style: ({ $theme }) => {
-                  return {
-                    ...$theme.typography.font1250,
-                    fontWeight: 700,
-                    marginBottom: '30px',
-                  };
-                },
-              },
-            }}
-          >
-            Log in to INST.
-          </Block>
+         
 
           <Button
             onClick={() => router.push('/api/login')}
