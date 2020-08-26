@@ -1,6 +1,6 @@
 [build]
   Functions = "functions"
-  Publish = "frontend/build"
+  Publish = "frontend"
 [[redirects]]
   from = "/*"
   to = "/index.html"
