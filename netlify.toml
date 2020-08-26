@@ -1,5 +1,4 @@
 [build]
-  Functions = "functions"
   Publish = "frontend"
 [[redirects]]
   from = "/*"
