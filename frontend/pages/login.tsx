@@ -10,7 +10,7 @@ import {
   StyledBody,
   StyledAction
 } from "baseui/card";
-import {H1, H2, H3, H4, H5, H6} from 'baseui/typography';
+import { H1, H2, H3, H4, H5, H6 } from 'baseui/typography';
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 import { Select } from 'baseui/select';
@@ -25,6 +25,25 @@ import { Row, Col } from 'react-flexbox-grid';
 type FormData = {
   newPassword: string;
 };
+
+const customStyle = {
+  borderRadius: {
+    borderRadius: '5px'
+  },
+  button: {
+    width: "100%",
+    padding: "auto 0px",
+    backgroundColor: '#46be8a',
+    borderColor: '#46be8a'
+  },
+  light: {
+    color: '#bbb'
+  },
+  f600: {
+    fontWeight: 600
+  }
+}
+
 const Login: NextPage<{}> = () => {
   const router = useRouter();
   const { register, handleSubmit, setValue, errors } = useForm();
@@ -46,7 +65,7 @@ const Login: NextPage<{}> = () => {
 
   const onSubmit = data => {
     console.log(data);
-    alert(JSON.stringify(data, null, 4));
+    router.push('/')
   };
 
   const handleSelect = ({ value }) => {
@@ -69,7 +88,7 @@ const Login: NextPage<{}> = () => {
     setValue('gender', event.currentTarget.value);
     setRadio(event.currentTarget.value);
   };
- 
+
   const handleOnChange = (e: any) => {
     const { name, value } = e.target;
     setState({
@@ -85,85 +104,96 @@ const Login: NextPage<{}> = () => {
       </Head>
 
       <Container>
-      <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-      <Block paddingTop={['0', '0', '0', '50px']}>
-      <Row>
-            <Col lg={3}>
-              
-            </Col>
-            <Col lg={9}>
-            <Card  style={{ width: '60%', height: '400px' }}>
-            <Row>
-              <H5>Log In</H5>
-            </Row>
-            <Row>
-
-                  <Block>
-                   <FormControl
-                      label=""
-                      caption=""
-                      error={errors.email && 'Please enter a valid email address'}
-                    >
-                      <Input
-                        name="email"
-                        placeholder="Email"
-                        inputRef={register({
-                          required: true,
-                          pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                        })}
-                        overrides={{
-                          InputContainer: {
-                            style: () => {
-                              return { backgroundColor: 'transparent' };
-                            },
-                          },
-                        }}
-                      />
-                    </FormControl>
-              </Block>
-            </Row>
-            <Row>
-                  <Block>
-                   <FormControl
-                      label=""
-                      caption="Please use 20 characters at maximum"
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%', marginTop: '15%' }}>
+          <Row>
+            <Col md={6} mdOffset={3}>
+              <Card>
+                <Col style={{ textAlign: 'center', marginTop: "50px" }}>
+                  <H5>Log In</H5>
+                  <p style={{... customStyle.light}}>Login and password</p>
+                </Col>
+                <Block $style={{ marginTop: "20px" }}>
+                  <FormControl error={errors.email && 'Please enter a valid email address'}>
+                    <Input
+                      name="email"
+                      placeholder="Email"
+                      inputRef={register({
+                        required: true,
+                        pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                      })}
                       overrides={{
-                        Label: {
-                          style: ({ $theme }) => {
-                            return { ...$theme.typography.font350 };
+                        InputContainer: {
+                          style: () => {
+                            return {
+                              backgroundColor: 'transparent',
+                              ...customStyle.borderRadius
+                            };
                           },
                         },
                       }}
-                    >
-                      <Input
-                        type="password"
-                        name="newPassword"
-                        placeholder="Password"
-                        value={state.newPassword}
-                        onChange={handleOnChange}
-                        inputRef={register({ required: true, maxLength: 20 })}
-                        overrides={{
-                          InputContainer: {
-                            style: () => {
-                              return { backgroundColor: 'transparent' };
-                            },
+                    />
+                  </FormControl>
+                </Block>
+                <Block>
+                  <FormControl
+                    // caption="Please use 20 characters at maximum"
+                    overrides={{
+                      Label: {
+                        style: ({ $theme }) => {
+                          return {
+                            ...$theme.typography.font350
+                          };
+                        },
+                      },
+                    }}
+                  >
+                    <Input
+                      type="password"
+                      name="newPassword"
+                      placeholder="Password"
+                      value={state.newPassword}
+                      onChange={handleOnChange}
+                      inputRef={register({ required: true, maxLength: 20 })}
+                      overrides={{
+                        InputContainer: {
+                          style: () => {
+                            return {
+                              backgroundColor: 'transparent',
+                              ...customStyle.borderRadius
+                            };
                           },
-                        }}
-                      />
-                    </FormControl>
-              </Block>
+                        },
+                      }}
+                    />
+                  </FormControl>
+                </Block>
 
-            </Row>
-              <Button type="submit">Login In</Button>
+                <Block>
+                  <Button
+                    $style={{...customStyle.button, ...customStyle.borderRadius}}
+                    type="submit"
+                  >Login In</Button>
+                </Block>
+                <Block $style={{ textAlign: 'center', margin: "15px 0px" }}>
+                  <a style={{
+                    ...customStyle.f600,
+                    textDecoration: 'none'
+                  }} href="#">Forgot password?</a>
+                </Block>
               </Card>
+              <Col style={{textAlign: 'center', margin: "15px 0px" }}>
+                <p style={{
+                  ...customStyle.f600,
+                  ...customStyle.light,
+                  textAlign: 'center'
+                }}> Don't have an account? {' '}
+                  <a style={{textDecoration: 'none'}} target="_black" href="https://pedantic-swartz-80eb30.netlify.app/"> Sign Up</a>
+                </p>
+              </Col>
             </Col>
           </Row>
-       
-      </Block>
-
-      
-    </form>
-        <Block
+        </form>
+        {/* <Block
           overrides={{
             Block: {
               style: {
@@ -176,7 +206,7 @@ const Login: NextPage<{}> = () => {
             },
           }}
         >
-         
+
 
           <Button
             onClick={() => router.push('/api/login')}
@@ -272,7 +302,7 @@ const Login: NextPage<{}> = () => {
           >
             Continue with Twitter
           </Button>
-        </Block>
+        </Block> */}
       </Container>
     </>
   );

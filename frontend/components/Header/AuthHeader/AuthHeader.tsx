@@ -32,7 +32,7 @@ const AuthHeader = ({ pathname }: AuthHeaderType) => {
           }
         />
 
-        <Block>
+        {/* <Block>
           <Button
             kind="minimal"
             disabled={pathname === '/login'}
@@ -67,7 +67,7 @@ const AuthHeader = ({ pathname }: AuthHeaderType) => {
           >
             Join Free
           </Button>
-        </Block>
+        </Block> */}
       </Block>
     </Container>
   );
