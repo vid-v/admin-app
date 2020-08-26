@@ -187,7 +187,7 @@ const Login: NextPage<{}> = () => {
                   ...customStyle.light,
                   textAlign: 'center'
                 }}> Don't have an account? {' '}
-                  <a style={{textDecoration: 'none'}} target="_black" href="https://pedantic-swartz-80eb30.netlify.app/"> Sign Up</a>
+                  <a style={{textDecoration: 'none'}} target="_self" href="https://pedantic-swartz-80eb30.netlify.app/"> Sign Up</a>
                 </p>
               </Col>
             </Col>
