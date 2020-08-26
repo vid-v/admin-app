@@ -1,5 +1,5 @@
 [build]
-  Publish = "frontend"
+  Publish = "build"
 [[redirects]]
   from = "/*"
   to = "/index.html"
