@@ -6,5 +6,5 @@
 
  [build]
   base    = "frontend"
-  publish = "frontend/out/"
+  publish = "/out"
   command = "npm run build"
