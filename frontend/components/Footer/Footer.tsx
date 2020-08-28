@@ -6,7 +6,7 @@ const Footer: React.FC<{}> = () => {
   return (
     <FooterWrapper>
       <Container>
-        <Text>Inst ©{new Date().getFullYear()} Created by RedQ, Inc</Text>
+        <Text>©{new Date().getFullYear()} KwikPay Solutions, Inc</Text>
       </Container>
     </FooterWrapper>
   );
