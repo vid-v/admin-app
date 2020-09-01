@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="63" height="22" viewBox="0 0 63 22">
-  <g id="Group_34" data-name="Group 34" transform="translate(-440 -24)">
-    <text id="INST" transform="translate(453 41)" font-size="22" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="-0.01em"><tspan x="0" y="0">INST</tspan></text>
-    <g id="Group_33" data-name="Group 33" transform="translate(-17 -3)">
-      <path id="Path_22" data-name="Path 22" d="M0,0,7.765,15H0Z" transform="translate(457 29)" fill="#7f4c7b"/>
-      <path id="Path_23" data-name="Path 23" d="M7.765,15,0,0H7.765Z" transform="translate(460.235 29)" fill="#f35a63"/>
-    </g>
-    <rect id="Rectangle_46" data-name="Rectangle 46" width="3" height="3" transform="translate(500 38)"/>
-  </g>
-</svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.65 24.49"><defs><style>.cls-1{fill:#00766a;}.cls-1,.cls-2,.cls-3{fill-rule:evenodd;}.cls-2{fill:#35bdb6;}.cls-3{fill:#00a89d;}.cls-4{font-size:1.15px;font-family:Seravek-Bold, Seravek;}.cls-4,.cls-5{font-weight:700;}.cls-5{font-size:17.22px;font-family:Arial-BoldMT, Arial;}</style></defs><polygon class="cls-1" points="5.36 17.97 5.36 17.97 0 17.97 0 12.44 5.36 17.97"/><path class="cls-2" d="M16.27,0l-7,7.26L7.72,5.68V0Z"/><polygon class="cls-3" points="16.27 17.97 5.36 6.69 5.36 0 0 0 0 8.99 5.36 14.53 5.36 14.53 8.7 17.97 16.27 17.97"/><text class="cls-4" transform="translate(69.18 17.98) scale(0.97 1.15)"><tspan xml:space="preserve">  </tspan></text><text class="cls-5" transform="translate(14.49 18) scale(0.83 1)">wikPay</text></svg>
