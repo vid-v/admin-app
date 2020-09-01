@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { IoIosMailUnread, IoMdCart } from 'react-icons/io';
 import { FaMoneyCheckAlt, FaChartLine } from 'react-icons/fa';
 import { Row, Col } from 'react-flexbox-grid';
@@ -62,6 +63,15 @@ const Home: NextPage<{}> = () => {
 	});
 	if (!data) return null;
 	const { productViews, recentApps, productsBar, cashFlow } = data.dashboard;
+
+	const isAuthrized = !!(typeof window !== 'undefined' &&localStorage && localStorage.getItem('token'));
+	const router = useRouter();
+	// @TODO check authenticated?
+
+	if (typeof window !== 'undefined' && !isAuthrized) {
+		router.push('/login')
+	}
+
 	return (
 		<Container>
 			<Head>

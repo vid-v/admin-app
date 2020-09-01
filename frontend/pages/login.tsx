@@ -65,6 +65,7 @@ const Login: NextPage<{}> = () => {
 
   const onSubmit = data => {
     console.log(data);
+    localStorage.setItem('token', "<token-set>")
     router.push('/')
   };
 
