@@ -8,7 +8,6 @@ import { Block } from 'baseui/block';
 import Badge from '../../UiElements/Badge/Badge';
 import Logo from '../../UiElements/Logo/Logo';
 import SvgIcon from '../../UiElements/SvgIcon/SvgIcon';
-import TopMenu from '../HeaderMenu/TopMenu/TopMenu';
 import MainMenu from '../HeaderMenu/MainMenu/MainMenu';
 import AvatarMenu from '../HeaderMenu/AvatarMenu/AvatarMenu';
 import {
@@ -50,9 +49,6 @@ const MobileHeader: React.FC<{}> = () => {
 	let placement;
 	if (menu === 'main') {
 		placement = 'left';
-	}
-	if (menu === 'top') {
-		placement = 'right';
 	}
 
 	return (
@@ -166,7 +162,7 @@ const MobileHeader: React.FC<{}> = () => {
 
 					{menu === 'top' && (
 						<TopMenuWrapper>
-							<TopMenu onClick={() => setIsOpen(false)} />
+							
 
 							<AvatarMenu
 								showOnlyMenu={true}

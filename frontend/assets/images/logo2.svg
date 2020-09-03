@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="137px" height="40px" viewBox="0 0 137 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Untitled 8</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polyline id="Fill-7" fill="#0B664E" points="14 32.9998287 3.63931304 33 3.63931304 22.9525966 14 32.9998287 0 19"></polyline>
+        <path d="M35,0 L21.8578413,14 L19,10.955434 C19,7.30359232 19,3.65184165 19,0 L35,0" id="Fill-8" fill-opacity="0.721946023" fill="#10AC84"></path>
+        <polyline id="Fill-9" fill="#10AC84" points="34 34 13.2069681 12.6612858 13.2069681 0 3 0 3 16.9999107 13.2069681 27.4747439 13.2069681 27.4749224 19.5652175 34 34 34"></polyline>
+        <text id="wikpay" font-family="Helvetica" font-size="30.4" font-weight="normal" fill="#08283C">
+            <tspan x="36" y="32">wikpay</tspan>
+        </text>
+    </g>
+</svg>
